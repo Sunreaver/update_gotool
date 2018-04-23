@@ -1,6 +1,6 @@
 ROOT=${GOPATH}/src/golang.org/x
 GOLINT=$(ROOT)/lint
-GOIMPORTS=$(ROOT))/tools
+GOIMPORTS=$(ROOT)/tools
 
 .PHONY: golint
 .PHONY: goimports
