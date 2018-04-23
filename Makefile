@@ -1,4 +1,4 @@
-ROOT=${GOPATH}/src/golang.org/x
+ROOT=${GOPATH}src/golang.org/x
 GOLINT=$(ROOT)/lint
 GOIMPORTS=$(ROOT)/tools
 
