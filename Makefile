@@ -28,7 +28,11 @@ golint:
 	cd $(GOLINT) && git pull && cd $(GOLINT)/golint && go install
 
 gotools:
-	cd $(GOTOOLS) && git pull && cd $(GOTOOLS)/cmd/goimports && go install && cd $(GOTOOLS)/cmd/gorename && go install && cd $(GOTOOLS)/cmd/guru && go install
+	cd $(GOTOOLS) && git pull
+	cd $(GOTOOLS)/cmd/goimports && go install
+	cd $(GOTOOLS)/cmd/gorename && go install
+	cd $(GOTOOLS)/cmd/guru && go install
+	cd $(GOTOOLS)/cmd/godoc && go install
 
 gocode:
 	go get -u -v github.com/nsf/gocode
