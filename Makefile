@@ -15,7 +15,7 @@ GOTOOLS=$(ROOT)/tools
 .PHONY: go-symbols
 .PHONY: godef
 
-update: golint gocode protobuf godep goconvey gomockgen goimportdot go-outline go-symbols gopkgs
+update: golint gocode protobuf godep goconvey gomockgen goimportdot go-outline go-symbols gopkgs godef gotools
 
 install:
 	cd $(ROOT) && git clone https://github.com/golang/lint
@@ -31,7 +31,6 @@ gotools:
 	cd $(GOTOOLS) && git pull
 	cd $(GOTOOLS)/cmd/goimports && go install
 	cd $(GOTOOLS)/cmd/gorename && go install
-	cd $(GOTOOLS)/cmd/guru && go install
 	cd $(GOTOOLS)/cmd/godoc && go install
 
 gocode:
