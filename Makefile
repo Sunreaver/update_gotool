@@ -34,7 +34,7 @@ gotools:
 	cd $(GOTOOLS)/cmd/godoc && go install
 
 gocode:
-	go get -u -v github.com/nsf/gocode
+	go get -u -v github.com/mdempsky/gocode
 
 protobuf:
 	go get -u -v github.com/golang/protobuf/protoc-gen-go
