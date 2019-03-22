@@ -6,7 +6,6 @@ GOTOOLS=$(ROOT)/tools
 .PHONY: gotools
 .PHONY: protobuf
 .PHONY: gocode
-.PHONY: govendor
 .PHONY: goconvey
 .PHONY: gomockgen
 .PHONY: goimportdot
@@ -41,9 +40,6 @@ protobuf:
 
 govendor:
 	go get -u -v github.com/kardianos/govendor
-
-goconvey:
-	go get -u -v github.com/smartystreets/goconvey
 
 gomockgen:
 	go get -u -v github.com/golang/mock/mockgen
