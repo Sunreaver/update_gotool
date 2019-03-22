@@ -6,7 +6,7 @@ GOTOOLS=$(ROOT)/tools
 .PHONY: gotools
 .PHONY: protobuf
 .PHONY: gocode
-.PHONY: godep
+.PHONY: govendor
 .PHONY: goconvey
 .PHONY: gomockgen
 .PHONY: goimportdot
@@ -15,7 +15,7 @@ GOTOOLS=$(ROOT)/tools
 .PHONY: go-symbols
 .PHONY: godef
 
-update: golint gocode protobuf godep goconvey gomockgen goimportdot go-outline go-symbols gopkgs godef gotools
+update: golint gocode protobuf govendor goconvey gomockgen goimportdot go-outline go-symbols gopkgs godef gotools
 
 install:
 	cd $(ROOT) && git clone https://github.com/golang/lint
@@ -39,8 +39,8 @@ gocode:
 protobuf:
 	go get -u -v github.com/golang/protobuf/protoc-gen-go
 
-godep:
-	go get -u -v github.com/tools/godep
+govendor:
+	go get -u -v github.com/kardianos/govendor
 
 goconvey:
 	go get -u -v github.com/smartystreets/goconvey
