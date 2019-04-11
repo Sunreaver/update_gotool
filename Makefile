@@ -1,6 +1,6 @@
 ROOT=${GOPATH}/src/golang.org/x
-GOLINT=$(ROOT)/lint
-GOTOOLS=$(ROOT)/tools
+GOLINT=${ROOT}/lint
+GOTOOLS=${ROOT}/tools
 
 .PHONY: golint
 .PHONY: gotools
@@ -14,23 +14,22 @@ GOTOOLS=$(ROOT)/tools
 .PHONY: go-symbols
 .PHONY: godef
 
-update: golint gocode protobuf govendor goconvey gomockgen goimportdot go-outline go-symbols gopkgs godef gotools
+update: golint gocode protobuf goconvey gomockgen goimportdot go-outline go-symbols gopkgs godef gotools
 
 install:
-	cd $(ROOT) && git clone https://github.com/golang/lint
-	cd $(ROOT) && git clone https://github.com/golang/tools
+	cd ${ROOT} && git clone https://github.com/golang/lint
+	cd ${ROOT} && git clone https://github.com/golang/tools
 
 godef:
 	go get -u -v github.com/rogpeppe/godef
 
 golint:
-	cd $(GOLINT) && git pull && cd $(GOLINT)/golint && go install
+	cd ${GOLINT}/golint && go install
 
-gotools:
-	cd $(GOTOOLS) && git pull
-	cd $(GOTOOLS)/cmd/goimports && go install
-	cd $(GOTOOLS)/cmd/gorename && go install
-	cd $(GOTOOLS)/cmd/godoc && go install
+gotools: golint gocode
+	cd ${GOTOOLS}/cmd/goimports && go install
+	cd ${GOTOOLS}/cmd/gorename && go install
+	cd ${GOTOOLS}/cmd/godoc && go install
 
 gocode:
 	go get -u -v github.com/mdempsky/gocode
