@@ -13,6 +13,7 @@ GOTOOLS=${ROOT}/tools
 .PHONY: go-outline
 .PHONY: go-symbols
 .PHONY: godef
+.PHONY: guru
 
 update: golint gocode protobuf goconvey gomockgen goimportdot go-outline go-symbols gopkgs godef gotools
 
@@ -26,10 +27,13 @@ godef:
 golint:
 	cd ${GOLINT}/golint && go install
 
-gotools: golint gocode
+gotools: golint gocode guru
 	cd ${GOTOOLS}/cmd/goimports && go install
 	cd ${GOTOOLS}/cmd/gorename && go install
 	cd ${GOTOOLS}/cmd/godoc && go install
+
+guru:
+	cd ${GOTOOLS}/cmd/guru && go install
 
 gocode:
 	go get -u -v github.com/mdempsky/gocode
