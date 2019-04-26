@@ -31,6 +31,7 @@ gotools: golint gocode guru
 	cd ${GOTOOLS}/cmd/goimports && go install
 	cd ${GOTOOLS}/cmd/gorename && go install
 	cd ${GOTOOLS}/cmd/godoc && go install
+	cd ${GOTOOLS}/cmd/gopls && go install
 
 guru:
 	cd ${GOTOOLS}/cmd/guru && go install
