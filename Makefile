@@ -41,6 +41,7 @@ gocode:
 
 protobuf:
 	go get -u -v github.com/golang/protobuf/protoc-gen-go
+	go get -u -v github.com/micro/protoc-gen-micro
 
 govendor:
 	go get -u -v github.com/kardianos/govendor
