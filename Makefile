@@ -26,6 +26,7 @@ godef:
 
 golint:
 	cd ${GOLINT}/golint && go install
+	go get -u -v github.com/golangci/golangci-lint/cmd/golangci-lint
 
 gotools: golint gocode guru
 	cd ${GOTOOLS}/cmd/goimports && go install
