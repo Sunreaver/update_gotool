@@ -5,6 +5,7 @@ GOTOOLS=${ROOT}/tools
 .PHONY: golint
 .PHONY: gotools
 .PHONY: protobuf
+.PHONY: gopls
 .PHONY: gocode
 .PHONY: goconvey
 .PHONY: gomockgen
@@ -25,8 +26,10 @@ godef:
 	go get -u -v github.com/rogpeppe/godef
 
 golint:
-	cd ${GOLINT}/golint && go install
 	go get -u -v github.com/golangci/golangci-lint/cmd/golangci-lint
+
+gopls:
+	cd ${GOTOOLS}/cmd/gopls && go install
 
 gotools: golint gocode guru
 	cd ${GOTOOLS}/cmd/goimports && go install
