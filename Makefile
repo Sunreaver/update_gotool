@@ -16,6 +16,8 @@ GOTOOLS=${ROOT}/tools
 .PHONY: godef
 .PHONY: guru
 
+export GO111MODULE=off
+
 update: golint gocode protobuf goconvey gomockgen goimportdot go-outline go-symbols gopkgs godef gotools
 
 install:
