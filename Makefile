@@ -9,7 +9,6 @@ GOTOOLS=${ROOT}/tools
 .PHONY: gocode
 .PHONY: goconvey
 .PHONY: gomockgen
-.PHONY: goimportdot
 .PHONY: gopkgs
 .PHONY: go-outline
 .PHONY: go-symbols
@@ -18,7 +17,7 @@ GOTOOLS=${ROOT}/tools
 
 export GO111MODULE=off
 
-update: golint gocode protobuf goconvey gomockgen goimportdot go-outline go-symbols gopkgs godef gotools
+update: golint gocode protobuf goconvey gomockgen go-outline go-symbols gopkgs godef gotools
 
 install:
 	cd ${ROOT} && git clone https://github.com/golang/lint
@@ -54,9 +53,6 @@ govendor:
 
 gomockgen:
 	go get -u -v github.com/golang/mock/mockgen
-
-goimportdot:
-	go get -v -u github.com/yqylovy/goimportdot
 
 gopkgs:
 	go get -u -v github.com/uudashr/gopkgs/cmd/gopkgs
